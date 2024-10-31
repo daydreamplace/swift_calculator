@@ -13,9 +13,6 @@ class Calculator {
     func divide(_ a: Double, _ b: Double) -> Double? {
         return b != 0 ? a / b : nil
     }
-    func remainder(_ a: Double, _ b: Double) -> Double? {
-        return b != 0 ? a.truncatingRemainder(dividingBy: b) : nil
-    }
 }
 
 let calculator = Calculator()
@@ -31,12 +28,6 @@ print(multiplyResult)
 
 if let divideResult = calculator.divide(5, 3) {
     print(divideResult)
-} else {
-    print("0으로 나눔")
-}
-
-if let remainderResult = calculator.remainder(1.56, 2) {
-    print(remainderResult)
 } else {
     print("0으로 나눔")
 }
