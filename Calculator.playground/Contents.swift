@@ -1,20 +1,56 @@
 import Foundation
 
-class Calculator {
-    func add(_ a: Double, _ b: Double) -> Double{
+class AddOperation {
+    func calculate(_ a: Double, _ b: Double) -> Double{
         return a + b
     }
-    func substract(_ a: Double,_ b: Double) -> Double {
+}
+
+class SubstractOperation {
+    func calculate(_ a: Double, _ b: Double) -> Double{
         return a - b
     }
-    func multiply(_ a: Double, _ b: Double) -> Double {
+}
+
+class MultiplyOperation {
+    func calculate(_ a: Double, _ b: Double) -> Double{
         return a * b
     }
-    func divide(_ a: Double, _ b: Double) -> Double? {
+}
+
+class DivideOperation {
+    func calculate(_ a: Double, _ b: Double) -> Double? {
         return b != 0 ? a / b : nil
     }
-    func remainder(_ a: Double, _ b: Double) -> Double? {
+}
+
+class RemainderOperation {
+    func calculate(_ a: Double, _ b: Double) -> Double? {
         return b != 0 ? a.truncatingRemainder(dividingBy: b) : nil
+    }
+}
+
+class Calculator {
+    private let addOperation = AddOperation()
+    private let subtractOperation = SubstractOperation()
+    private let multiplyOperation = MultiplyOperation()
+    private let divideOperation = DivideOperation()
+    private let remainderOperation = RemainderOperation()
+    
+    func add(_ a: Double, _ b: Double) -> Double{
+        return addOperation.calculate(a, b)
+    }
+    func substract(_ a: Double,_ b: Double) -> Double {
+        return subtractOperation.calculate(a, b)
+    }
+    func multiply(_ a: Double, _ b: Double) -> Double {
+        return multiplyOperation.calculate(a, b)
+    }
+    func divide(_ a: Double, _ b: Double) -> Double? {
+        return divideOperation.calculate(a, b)
+    }
+    func remainder(_ a: Double, _ b: Double) -> Double? {
+        return remainderOperation.calculate(a, b)
     }
 }
 
