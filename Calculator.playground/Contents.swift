@@ -1,37 +1,42 @@
 import Foundation
 
 class Calculator {
-    func add(a: Double, b: Double) -> Double{
+    func add(_ a: Double, _ b: Double) -> Double{
         return a + b
     }
-    func substract(a: Double, b: Double) -> Double {
+    func substract(_ a: Double,_ b: Double) -> Double {
         return a - b
     }
-    func multiply(a: Double, b: Double) -> Double {
+    func multiply(_ a: Double, _ b: Double) -> Double {
         return a * b
     }
-    func divide(a:Double, b: Double) -> Double? {
-        if b != 0 {
-            return a / b
-        } else {
-            return nil
-        }
+    func divide(_ a: Double, _ b: Double) -> Double? {
+        return b != 0 ? a / b : nil
+    }
+    func remainder(_ a: Double, _ b: Double) -> Double? {
+        return b != 0 ? a.truncatingRemainder(dividingBy: b) : nil
     }
 }
 
 let calculator = Calculator()
 
-let addResult = calculator.add(a: 5, b: 3)
+let addResult = calculator.add(5, 3)
 print(addResult)
 
-let substractResult = calculator.substract(a: 5, b: 3)
+let substractResult = calculator.substract(5, 3)
 print(substractResult)
 
-let multiplyResult = calculator.multiply(a: 5, b: 3)
+let multiplyResult = calculator.multiply(5, 3)
 print(multiplyResult)
 
-if let divideResult = calculator.divide(a: 5, b: 0) {
+if let divideResult = calculator.divide(5, 3) {
     print(divideResult)
+} else {
+    print("0으로 나눔")
+}
+
+if let remainderResult = calculator.remainder(1.56, 2) {
+    print(remainderResult)
 } else {
     print("0으로 나눔")
 }
